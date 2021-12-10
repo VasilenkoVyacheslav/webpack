@@ -43,6 +43,11 @@ table {
     display: flex;
     justify-content: space-between;
     align-items: center; }
+  .header__navigation a {
+    color: #000; }
+    @media (max-width: 1200px) {
+      .header__navigation a {
+        color: #f00; } }
 
 
 /*# sourceMappingURL=style.css.map*/

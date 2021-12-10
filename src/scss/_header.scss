@@ -17,7 +17,11 @@
     &__navigation {
 
         a {
+            color: #000;
 
+            @include screen(1200) {
+                color: #f00;
+            }
         }
     }
 }
