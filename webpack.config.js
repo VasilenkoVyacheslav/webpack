@@ -88,7 +88,7 @@ const config = {
             template: "./src/index.html"
         }),
         new ImageminPlugin({
-            test: /\.(jpe?g|png|gif|svg)$/i,
+            test: /\.(gif|png|jpg|jpeg|svg)$/i,
             pngquant: {
                 quality: '80'
             },
@@ -99,12 +99,9 @@ const config = {
         }),
         new CopyWebpackPlugin({
             patterns: [
-                {
-                    from: "src/bg-images",
-                    to: "bg-images"
-                },
+              { from: "src/images/inline", to: "images/inline" },
             ],
-        }),
+          }),
     ]
 };
 
