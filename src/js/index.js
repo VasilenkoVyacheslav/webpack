@@ -9,11 +9,11 @@ $('.close-menu').on('click', function() {
 });
 
 // Swiper
-import Swiper, { Autoplay, Navigation } from 'swiper';
-Swiper.use([ Autoplay, Navigation ]);
+import Swiper, { Autoplay, Navigation, Pagination } from 'swiper';
+Swiper.use([ Autoplay, Navigation, Pagination ]);
 
 $(document).ready(function (){
-
+    // About slider
     const swiper = new Swiper('.swiper-about', {
         loop: true,
         autoplay: {
@@ -39,6 +39,22 @@ $(document).ready(function (){
               slidesPerView: 4,
               spaceBetween: 30
             },
+        },
+    });
+
+    //Clients slider
+    const clients_swiper = new Swiper('.clients__swiper', {
+        loop: true,
+        autoplay: {
+            delay: 5000,
+        },
+        slidesPerView: 1,
+        spaceBetween: 30,
+        autoHeight: true,
+        pagination: {
+            el: '.swiper-pagination',
+            type: 'bullets',
+            clickable: true
         },
     });
 })
