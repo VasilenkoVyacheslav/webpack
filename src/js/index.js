@@ -1,28 +1,23 @@
 window.$ = window.jQuery = require('jquery');
-import Swiper, { Autoplay, Navigation } from 'swiper';
 
-Swiper.use([ Autoplay, Navigation ]);
+//Mobile menu
+$('.menu-button').on('click', function() {
+    $('.navigation-wrapper').addClass('active');
+})
+$('.close-menu').on('click', function() {
+    $('.navigation-wrapper').removeClass('active');
+});
+
+// Swiper
+import Swiper, { Autoplay, Navigation, Pagination } from 'swiper';
+Swiper.use([ Autoplay, Navigation, Pagination ]);
 
 $(document).ready(function (){
-
+    // About slider
     const swiper = new Swiper('.swiper-about', {
         loop: true,
         autoplay: {
             delay: 5000,
-        },
-        breakpoints: {
-            580: {
-                slidesPerView: 2,
-                spaceBetween: 20
-            },
-            840: {
-                slidesPerView: 3,
-                spaceBetween: 30
-            },
-            1024: {
-                slidesPerView: 4,
-                spaceBetween: 30
-            }
         },
         slidesPerView: 1,
         spaceBetween: 30,
@@ -30,23 +25,56 @@ $(document).ready(function (){
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
         },
+        breakpoints: {
+            600: {
+                slidesPerView: 2,
+                spaceBetween: 30
+              },
+            1024: {
+                slidesPerView: 3,
+                spaceBetween: 30
+              },
+            
+            1224: {
+              slidesPerView: 4,
+              spaceBetween: 30
+            },
+        },
     });
 
-    //Tabs
-    $('.tabs__button').on('click', function () {
-        $(".tabs .tabs__button").removeClass("active").eq($(this).index()).addClass("active");
-        $(".tabs__item").hide().eq($(this).index()).fadeIn();
-    }).eq(0).addClass("active");
-    $(".tabs__item").eq(0).fadeIn();
+    //Clients slider
+    const clients_swiper = new Swiper('.clients__swiper', {
+        loop: true,
+        autoplay: {
+            delay: 5000,
+        },
+        slidesPerView: 1,
+        spaceBetween: 30,
+        autoHeight: true,
+        pagination: {
+            el: '.swiper-pagination',
+            type: 'bullets',
+            clickable: true
+        },
+    });
 })
 
-$(window).scroll(function () {
+//Sticky
+$(window).scroll(function(){
     const headerHeight = $('.header').outerHeight();
     const bannerHeight = $('.main-banner').outerHeight();
     if($(window).scrollTop() >= (bannerHeight - headerHeight)) {
-        $('.header').addClass('sticky');
+        $('header').addClass('sticky');
     }
     else {
-        $('.header').removeClass('sticky');
+        $('header').removeClass('sticky');
     }
 })
+
+
+// Tabs
+$('.tabs__button').on('click', function () {
+    $(".tabs .tabs__button").removeClass("active").eq($(this).index()).addClass("active");
+    $(".tabs__item").hide().eq($(this).index()).fadeIn();
+}).eq(0).addClass("active");
+$(".tabs__item").eq(0).fadeIn();

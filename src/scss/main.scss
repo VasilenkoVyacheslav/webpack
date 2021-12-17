@@ -2,8 +2,13 @@
 @import 'mixins';
 @import '~swiper/swiper.scss';
 @import '~swiper/modules/navigation/navigation';
+@import '~swiper/modules/pagination/pagination';
 @import "base";
 @import 'header';
 @import 'main-banner';
 @import 'about';
+@import 'services';
 @import 'works';
+@import 'paralax';
+@import 'blog';
+@import 'clients';
