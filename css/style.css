@@ -382,7 +382,8 @@ img {
 
 body {
   font: 400 14px/1.25 "Roboto Slab", "Times New Roman", serif;
-  color: #555; }
+  color: #555;
+  background: #c0301c; }
 
 a {
   text-decoration: none;
